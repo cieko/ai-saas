@@ -5,7 +5,6 @@ export default function DashboardPage() {
     return (
         <div>
             <p>hey</p>
-            <UserButton afterSignOutUrl="/" />
         </div>
     );
 }
