@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import * as z from "zod";
+import toast from "react-hot-toast";
 import axios from "axios";
 import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
@@ -14,10 +16,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
-
-import { cn } from "@/lib/utils";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constant";
 import {
@@ -28,7 +26,6 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
-import Image from "next/image";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 const ImagePage = () => {
@@ -61,7 +58,10 @@ const ImagePage = () => {
             form.reset();
         } catch (error: any) {
             if (error?.response?.status === 403) {
+                toast.error("You have completed your free tier.");
                 proModal.onOpen();
+            } else {
+                toast.error("Something went wrong.");
             }
         } finally {
             router.refresh();

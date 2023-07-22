@@ -56,7 +56,10 @@ const CodePage = () => {
             form.reset();
         } catch (error: any) {
             if (error?.response?.status === 403) {
+                toast.error("You have completed your free tier.");
                 proModal.onOpen();
+            } else {
+                toast.error("Something went wrong.");
             }
             console.log(error)
         } finally {

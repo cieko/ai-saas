@@ -4,6 +4,7 @@ import { useState } from "react";
 import * as z from "zod";
 import axios from "axios";
 import { Music } from "lucide-react";
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -44,7 +45,10 @@ const MusicPage = () => {
             form.reset();
         } catch (error: any) {
             if (error?.response?.status === 403) {
+                toast.error("You have completed your free tier.");
                 proModal.onOpen();
+            } else {
+                toast.error("Something went wrong.");
             }
         } finally {
             router.refresh();

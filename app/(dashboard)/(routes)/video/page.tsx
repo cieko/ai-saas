@@ -7,6 +7,7 @@ import { Video } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 import { Heading } from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -44,7 +45,10 @@ const VideoPage = () => {
             form.reset();
         } catch (error: any) {
             if (error?.response?.status === 403) {
+                toast.error("You have completed your free tier.");
                 proModal.onOpen();
+            } else {
+                toast.error("Something went wrong.");
             }
         } finally {
             router.refresh();
