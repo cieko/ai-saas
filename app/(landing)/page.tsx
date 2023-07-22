@@ -1,19 +1,16 @@
+import { LandingNavbar } from "@/components/landing-navbar";
+import { LandingHero } from "@/components/landing-hero";
+import { LandingContent } from "@/components/landing-content";
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-export default function LandingPage() {
+const LandingPage = () => {
     return (
-        <div>
-            Landing Page
-            <div>
-                <Link href="/sign-in">
-                    <Button>Login</Button>
-                </Link>
-                <Link href="/sign-up">
-                    <Button>Register</Button>
-                </Link>
-            </div>
+        <div className="h-full ">
+            <LandingNavbar />
+            <LandingHero />
+            {/* <LandingContent /> */}
+            {/* TODO: Integrate Mongodb for showcase user's result */}
         </div>
     );
-}
+};
+
+export default LandingPage;
