@@ -1,3 +1,5 @@
+# ALl the database logics has been written in PLANETSCALE, be sure to wake it up, if there is server side error    
+
 > # This is a learning based project, the template has been taken from youtube.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
