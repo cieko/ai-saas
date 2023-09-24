@@ -1,3 +1,5 @@
+> # the openai api has been expired because my three month is over, so there won't be any generation.
+
 # ALl the database logics has been written in PLANETSCALE, be sure to wake it up, if there is server side error    
 
 > # This is a learning based project, the template has been taken from youtube.
